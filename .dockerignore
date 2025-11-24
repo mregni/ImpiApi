@@ -1,0 +1,43 @@
+# Exclude .NET build outputs
+**/bin/
+**/obj/
+**/out/
+
+# Exclude IDE files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+
+# Exclude OS generated files
+.DS_Store
+Thumbs.db
+
+# Exclude Git
+.git/
+.gitignore
+
+# Exclude documentation
+*.md
+!README.md
+
+# Exclude test files
+**/TestResults/
+
+# Exclude logs
+*.log
+
+# Exclude temporary files
+**/temp/
+**/tmp/
+
+# Exclude package files
+*.nupkg
+
+# Exclude node_modules (if any)
+node_modules/
+
+# Exclude Docker files from being copied
+Dockerfile*
+.dockerignore

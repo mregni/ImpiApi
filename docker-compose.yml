@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  ipmi-api:
+    image: impi-api:1.0.0
+    container_name: ipmi-api
+    ports:
+      - "9856:9856"
+    environment:
+      - IPMI_HOST=92.168.1.6
+      - IPMI_USERNAME=ADMIN
+      - IPMI_PASSWORD=ADMIN
+      - IPMI_TIMEOUT=30
+      - IPMI_USE_HTTPS=true
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
