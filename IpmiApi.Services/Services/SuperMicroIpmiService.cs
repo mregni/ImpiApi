@@ -249,6 +249,17 @@ public class SuperMicroIpmiService : IIpmiService, IDisposable
         return status;
     }
 
+    public IpmiServerInfo GetServerInfo()
+    {
+        return new IpmiServerInfo
+        {
+            Host = _config.Host,
+            Username = _config.Username,
+            UseHttps = _config.UseHttps,
+            TimeoutSeconds = _config.TimeoutSeconds
+        };
+    }
+
     public void Dispose()
     {
         Logout();

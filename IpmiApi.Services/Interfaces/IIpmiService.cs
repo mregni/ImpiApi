@@ -11,4 +11,5 @@ public interface IIpmiService
     Task<ServerStatus> GetServerStatusAsync();
     Task<bool> LoginAsync();
     void Logout();
+    IpmiServerInfo GetServerInfo();
 }

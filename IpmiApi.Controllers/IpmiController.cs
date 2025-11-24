@@ -168,6 +168,26 @@ public class IpmiController : ControllerBase
     }
 
     /// <summary>
+    /// Gets the configured IPMI server information (IP and username)
+    /// </summary>
+    /// <returns>IPMI server configuration details</returns>
+    [HttpGet("server-info")]
+    public ActionResult<IpmiServerInfo> GetServerInfo()
+    {
+        try
+        {
+            _logger.LogInformation("Server info requested");
+            var info = _ipmiService.GetServerInfo();
+            return Ok(info);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error getting server info");
+            return StatusCode(500, new { Message = "Internal server error occurred" });
+        }
+    }
+
+    /// <summary>
     /// Tests IPMI connection by attempting to login
     /// </summary>
     /// <returns>Result of the connection test</returns>
